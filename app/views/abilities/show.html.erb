@@ -1,0 +1,10 @@
+<h1><%= @ability.full_name%></h1>
+
+<h2><%=@ability.description %></h2>
+<h2><%=@ability.abil_check%></h2>
+<h2>Skills</h2>
+<ul>
+    <%@ability.skills.each do |skill|%>
+    <li><%=skill.name%></li>
+    <%end%>
+</ul>

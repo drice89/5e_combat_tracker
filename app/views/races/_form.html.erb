@@ -1,0 +1,45 @@
+<!-- action: url to which we want to send data -->
+<!-- method: http method we want to use -->
+<!-- :name, :speed, :alignment, :age, :size, :size_description-->
+<!--
+    -action
+    -hidden input patch
+    -preset values
+    -submit button
+ -->
+<% if action == :edit%>
+    <% action_url = race_url(race)%>
+<% else %>
+    <% action_url = races_url %>
+<%end%>
+
+<form action="<%=action_url %>" method='post'>
+<% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+<% end %>
+
+    <ul>
+        <li><label for='race_name'>Name</label><input id="race_name" type="text" name='race[name]' value="<%=race.name%>"></li>
+        <li><label for='race_speed'>Speed</label><input id="race_speed" type="text" name='race[speed]' value="<%=race.speed%>"></li>
+        <li><label for='alignment'>Alignment</label><input id="alignment" type="text" name='race[alignment]' value="<%=race.alignment%>"></li>
+        <li><label for='age'>Age</label><input id="age" type="text" name='race[age]'value="<%=race.age%>"></li>
+        <li>
+            <label for='size'>Size</label>
+            <select id="size" name='race[size]'>
+                <option disabled <%= race.size ? "" : "selected"%>>--- Select Size ---</option>
+                <option value='large' <%= race == "large" ? "selected" : ""%> >Large</option>
+                <option value='medium'<%= race == "medium" ? "selected" : ""%> >Medium</option>
+                <option value='small'<%= race == "small" ? "selected" : ""%> >Small</option>
+                <option value='extra-small' <%= race == "extra-small" ? "selected" : ""%> >Extra Small</option>
+            </select>
+        </li>
+        <li><label for='size_description'>Size Description</label><br>
+        <textarea id="size_description" name='race[size_description]'>
+        <%=@race.size_description%>
+        </textarea>
+        </li>
+    </ul>
+
+    <input type='submit' value='<%= (:action == :edit) ? "Update Race": "Add Race"%>'>
+
+</form>

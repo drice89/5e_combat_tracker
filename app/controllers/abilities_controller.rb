@@ -1,14 +1,19 @@
 class AbilitiesController < ApplicationController
     def index
-        abilities = Ability.all
+        @abilities = Ability.all
 
-        render json: abilities
+        render :index
     end
 
     def show
-        ability = Ability.find(:id)
+        #debugger
+        @ability = Ability.find(params[:id])
 
-        render json: ability
+        if @ability
+            render :show
+        else
+            redirect_to abilities_url
+        end
     end
 
 
