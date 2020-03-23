@@ -1,0 +1,12 @@
+<% if action == :show %>
+    <li><a href="<%=races_url%>">Back to Index</a></li>
+<%else%> 
+    <li><a href="<%=race_url(race)%>">Race show page</a></li>
+<%end%>
+
+<li><%= race.name %></li>
+<li><%= race.speed%></li>
+<li><%= race.alignment%></li>
+<li><%= race.age %></li>
+<li><%= race.size %></li>
+<li><%= race.size_description%></li>

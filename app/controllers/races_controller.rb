@@ -1,6 +1,12 @@
 class RacesController < ApplicationController
     #skip_before_action :verify_authenticity_token
+    def index
+        @races = Race.all
+        render :index
+    end
+
     def show
+        @race = Race.find_by(id: params[:id])
         render :show
     end
     

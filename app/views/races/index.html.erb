@@ -1,0 +1,7 @@
+<h1>List of all Races</h1>
+<ul>
+    <% @races.each do |race|%>
+        <li><%= render 'races', race: race, action: :index  %></li>
+    <% end%>
+</ul>
+
