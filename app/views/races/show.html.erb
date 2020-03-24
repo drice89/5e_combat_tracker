@@ -1,6 +1,10 @@
 <h1>Information for <%@race.name%></h1>
-<ul> 
    
 <ul>
     <%= render 'races', race: @race, action: :show  %>
+    <li>
+    <form action="<%= race_url(@race)%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+    </li>
 </ul>

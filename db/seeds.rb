@@ -7,14 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Ability.destroy_all
 Skill.destroy_all
+Race.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('abilities')
 ApplicationRecord.connection.reset_pk_sequence!('skills')
+ApplicationRecord.connection.reset_pk_sequence!('races')
 
 ApplicationRecord.transaction do
 	puts 'Loading abilities...'
     require_relative 'data/abilities.rb'
     puts 'Loading skills...'
 	require_relative 'data/skills.rb'
+	puts 'Loading races...'
+	require_relative 'data/races.rb'
 	puts 'Done!'
 end

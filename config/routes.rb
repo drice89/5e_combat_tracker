@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :races
   resources :skills, :only => [:index, :show]
   resources :abilities, :only => [:index, :show]

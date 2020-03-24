@@ -1,7 +1,11 @@
 <h1>List of all Races</h1>
 <ul>
     <% @races.each do |race|%>
-        <li><%= render 'races', race: race, action: :index  %></li>
+        <%= render 'races', race: race, action: :index  %>
     <% end%>
+
+    <br>
+    <br>
+    <a href="<%=new_race_url%>">Create New Race</a>
 </ul>
 

@@ -30,7 +30,7 @@ Things you may want to cover:
 
 
 * Database initialization
-  MUST ADD SEED DATA FOR RACES
+  rails db:seed
 
 * How to run the test suite
 
