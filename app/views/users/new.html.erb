@@ -1,0 +1,25 @@
+
+
+<form action="<%=users_url%>" method="post">
+    <%= auth_token %>
+    <label>
+        First Name
+        <input type="text" name="user[fname]" value="<%=@user.fname%>">
+    </label>
+
+    <label>
+        Last Name
+        <input type="text" name="user[lname]" value="<%=@user.lname%>">
+    </label>
+
+    <label>Email Address (Username)
+        <input type="text" name="user[username]" value="<%=@user.username%>">
+    </label>
+
+    <label> Password
+        <input type="password" name="user[password]" value="">
+    </label>
+
+    <input type="submit" value="Create User">
+
+</form>

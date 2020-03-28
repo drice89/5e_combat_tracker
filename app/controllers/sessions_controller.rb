@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = user.find_by_credentials(params[session][username], params[session][password])
+        @user = User.find_by_credentials(params[:session][:username], params[:session][:password])
         if @user
             login_user!(@user)
             redirect_to user_url(@user)

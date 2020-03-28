@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
+    helper_method :current_user, :logged_in?
+
     def current_user
         return nil if !session[:session_token]
-        user = user.find_by(session_id: session[:session_id])
-        user ? user : nil
+        @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
     def login_user!(user)
@@ -10,8 +11,8 @@ class ApplicationController < ActionController::Base
     end
 
     def logout_user!
-        session[:session_token] = nil
         current_user.reset_session_token!
+        session[:session_token] = nil
         current_user = nil
     end
 
