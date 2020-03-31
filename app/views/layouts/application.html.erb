@@ -10,31 +10,8 @@
   </head>
 
   <body>
-  <header>
-   <div>
-    <nav>
-        <ul>
-            <li><img src="/assets/temp_logo.png"><li>
-            <%if !logged_in?%>
-                <li><button><a href="<%= new_session_url %>">Sign In </a></button></li>
-            <%else%>
-                <li><%= logout_button %></li>
-            <%end%>
-        </ul>
-    </nav>
-</div>>
-  </header>
 
-<div>
-  <% if flash[:errors] %>
-    <ul>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
-
+  <%= render partial: 'layouts/page_header' %>
     <%= yield %>
   </body>
 </html>

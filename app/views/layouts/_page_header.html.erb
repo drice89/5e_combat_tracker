@@ -1,19 +1,40 @@
-<!-- Getting some kind of miussing partial error - fix later
-Code moved directly into application.html.erb
-
-
-<div>
+<header>
+   <div>
     <nav>
         <ul>
-            <li><img src="assets/temp_logo.png"><li>
-            <%if !logged_in?%>
-                <li><button><a href="<%= new_session_url %>">Sign In </a></button></li>
-            <%else%>
-                <li><%= logout_button %></li>
-            <%end%>
+            <li>
+                <img src="/assets/temp_logo.png">
+            </li>
+            <ul class="nav-buttons">
+                <li>
+                    <%if !logged_in?%>
+                            <button><%= link_to 'Sign In', new_session_url %></button>
+                    <%else%>
+                            <%= logout_button %>
+                    <%end%>
+                </li>
+                <li class="menu-nav"> 
+                    <button>Menu</button>
+                
+                    <ul class="menu">
+                    <li>Characters</li>
+                    <li>Monsters</li>
+                    <li>Campaigns</li>
+                </ul>
+                </li>
+            </ul>
         </ul>
     </nav>
-</div>>
+</div>
+  </header>
 
--->
+<div>
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
         
